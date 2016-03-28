@@ -57,16 +57,19 @@ ProximitySensor::~ProximitySensor() {
 
 int ProximitySensor::setInitialState() {
     struct input_absinfo absinfo;
-    if (!ioctl(data_fd, EVIOCGABS(EVENT_TYPE_PROXIMITY), &absinfo)) {
-        // make sure to report an event immediately
-        mHasPendingEvent = true;
-        mPendingEvent.distance = indexToValue(absinfo.value);
-    }
-    return 0;
+    return ioctl(data_fd, EVIOCGABS(EVENT_TYPE_PROXIMITY), &absinfo);
 }
 
 int ProximitySensor::enable(int32_t, int en) {
     int flags = en ? 1 : 0;
+    if (en) {
+        //Enable sensor-events after 200ms when enabling sensor.
+        //When the sensor is being enabled and is being covered,
+        //it triggers 2 events -> 6cm -> 0cm within 150ms
+        //Adding a delay of 200ms it will filter the unnecessary (initializing) events
+        //and trigger the onSensorChanged-event only when it actually changes.
+        mSensorEnableTime = getTimestamp() + 200000000; 
+    }
     if (flags != mEnabled) {
         int fd;
         strcpy(&input_sysfs_path[input_sysfs_path_len], "enable");
@@ -99,12 +102,15 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
     if (count < 1)
         return -EINVAL;
 
+    bool isInStartupDelay = mSensorEnableTime > getTimestamp();
+
     if (mHasPendingEvent) {
         mHasPendingEvent = false;
         mPendingEvent.timestamp = getTimestamp();
         *data = mPendingEvent;
         return mEnabled ? 1 : 0;
     }
+
 
     ssize_t n = mInputReader.fill(data_fd);
     if (n < 0)
@@ -121,7 +127,7 @@ int ProximitySensor::readEvents(sensors_event_t* data, int count)
             }
         } else if (type == EV_SYN) {
             mPendingEvent.timestamp = timevalToNano(event->time);
-            if (mEnabled) {
+            if (mEnabled && !isInStartupDelay) {
                 *data++ = mPendingEvent;
                 count--;
                 numEventReceived++;

@@ -31,6 +31,7 @@
 struct input_event;
 
 class ProximitySensor : public SensorBase {
+    int64_t mSensorEnableTime;
     int mEnabled;
     InputEventCircularReader mInputReader;
     sensors_event_t mPendingEvent;
