@@ -87,7 +87,7 @@ static const struct sensor_t sSensorList[] = {
         { "CM3663 Proximity sensor",
           "Capella Microsystems",
           1, SENSORS_PROXIMITY_HANDLE,
-          SENSOR_TYPE_PROXIMITY, 5.0f, 5.0f, 0.75f, 0, 0, 0,},
+          SENSOR_TYPE_PROXIMITY, 6.0f, 6.0f, 0.75f, 0, 0, 0,},
         { "K3G Gyroscope sensor",
           "STMicroelectronics",
           1, SENSORS_GYROSCOPE_HANDLE,
