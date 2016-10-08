@@ -18,5 +18,9 @@
     {
        "repository": "android_external_stlport",
        "target_path": "external/stlport"
+    },
+    {
+        "repository": "android_external_libsamsung-ipc",
+        "target_path": "external/libsamsung-ipc"
     }
 ]
