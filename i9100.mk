@@ -22,6 +22,15 @@ LOCAL_PATH := device/samsung/i9100
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
+# ADB Debugging
+ADDITIONAL_DEFAULT_PROPERTIES += \
+    ro.debug_level=0x4948 \
+    ro.adb.secure=0 \
+    ro.secure=0 \
+    persist.service.adb.enable=1 \
+    ro.debuggable=1 \
+    persist.sys.usb.config=mtp,adb
+
 # This device is hdpi.
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := hdpi
