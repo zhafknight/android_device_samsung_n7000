@@ -14,6 +14,9 @@
 # limitations under the License.
 #
 
+# Use Emulated Storage (requires re-PIT)
+TARGET_USE_EMULATED_STORAGE := true
+
 # Include common makefile
 $(call inherit-product, device/samsung/galaxys2-common/common.mk)
 
@@ -32,9 +35,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Proprietary blobs dependency on libstlport
 PRODUCT_PACKAGES +=  libstlport
-
-# Use Emulated Storage (requires re-PIT)
-TARGET_USE_EMULATED_STORAGE := true
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -55,5 +55,14 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/usr/idc/melfas_ts.idc:system/usr/idc/melfas_ts.idc \
     $(LOCAL_PATH)/usr/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
     $(LOCAL_PATH)/usr/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
+
+# TWRP
+ifeq ($(TARGET_USE_EMULATED_STORAGE),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/twrp-emu.fstab:recovery/root/etc/twrp.fstab
+else
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/ramdisk/twrp.fstab:recovery/root/etc/twrp.fstab
+endif
 
 $(call inherit-product-if-exists, vendor/samsung/i9100/i9100-vendor.mk)
