@@ -27,7 +27,8 @@ TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
 
 # Boot image
-TARGET_PREBUILT_KERNEL := $(DEVICE_TREE)/kernel
+TARGET_KERNEL_CONFIG := lineageos_i9100_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/mkbootimg.mk
 BOARD_KERNEL_CMDLINE := console=ttySAC2,115200 consoleblank=0
 BOARD_KERNEL_BASE := 0x40000000
