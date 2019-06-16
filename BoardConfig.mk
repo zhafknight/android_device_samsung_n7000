@@ -14,10 +14,6 @@ TARGET_BOOTLOADER_BOARD_NAME := smdk4210
 TARGET_BOARD_PLATFORM := exynos4
 TARGET_BOARD_PLATFORM_GPU := mali-400mp4
 
-# Flags
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a9 -mfpu=neon -mfloat-abi=softfp
-
 # Architecture
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
