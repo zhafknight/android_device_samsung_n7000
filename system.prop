@@ -9,3 +9,7 @@ ro.ril.telephony.nstrings=4
 
 # EGL blobs crash on screen off
 ro.egl.destroy_after_detach=true
+
+persist.logd.size=16777216
+ro.logd.filter=disable
+persist.logd.filter=disable
