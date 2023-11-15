@@ -28,6 +28,10 @@ LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
 LOCAL_CFLAGS := -DALOG_TAG=\"Sensors\"
+
+LOCAL_HEADER_LIBRARIES := libhardware_headers \
+    libc_headers
+
 LOCAL_SRC_FILES := 						\
 				sensors.cpp 			\
 				SensorBase.cpp			\

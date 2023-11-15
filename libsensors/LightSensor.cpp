@@ -18,7 +18,7 @@
 #include <errno.h>
 #include <math.h>
 #include <poll.h>
-#include <unistd.h>
+#include <stdlib.h>
 #include <dirent.h>
 #include <sys/select.h>
 #include <cstring>

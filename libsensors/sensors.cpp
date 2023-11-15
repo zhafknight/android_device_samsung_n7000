@@ -29,8 +29,8 @@
 
 #include <linux/input.h>
 
-#include <utils/Atomic.h>
-#include <utils/Log.h>
+#include <stdatomic.h>
+#include <log/log.h>
 
 #include "sensors.h"
 
