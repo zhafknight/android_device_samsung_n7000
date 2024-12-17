@@ -1,5 +1,5 @@
 #
-# system.prop for i9100
+# system.prop for n7000
 #
 
 vendor.rild.libpath=/vendor/lib/libsecril-shim.so
