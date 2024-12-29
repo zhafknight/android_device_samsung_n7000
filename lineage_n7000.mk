@@ -15,11 +15,11 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := GT-I9100
+PRODUCT_RELEASE_NAME := GT-N7000
 
 # Bootanimation
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 800
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # Inherit some common Lineage stuff.
@@ -27,18 +27,20 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, device/samsung/i9100/i9100.mk)
+$(call inherit-product, device/samsung/n7000/n7000.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := i9100
-PRODUCT_NAME := lineage_i9100
+PRODUCT_DEVICE := n7000
+PRODUCT_NAME := lineage_n7000
 PRODUCT_BRAND := Samsung
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_MODEL := GT-I9100
+PRODUCT_MODEL := GT-N7000
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
 
 # Set build fingerprint / ID / Prduct Name ect.
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9100 TARGET_DEVICE=GT-I9100
-BUILD_FINGERPRINT=samsung/GT-I9100/GT-I9100:4.1.2/JZO54K/I9100XWMS2:user/release-keys
-PRIVATE_BUILD_DESC="GT-I9100-user 4.1.2 JZO54K I9100XWMS2 release-keys"
+BUILD_FINGERPRINT := "samsung/GT-N7000/GT-N7000:4.1.2/JZO54K/N7000XXLSZ:user/release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME="GT-N7000" \
+    TARGET_DEVICE="GT-N7000" \
+    PRIVATE_BUILD_DESC="GT-N7000-user 4.1.2 JZO54K N7000XXLSZ release-keys"
