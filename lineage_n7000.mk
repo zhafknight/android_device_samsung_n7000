@@ -36,10 +36,10 @@ PRODUCT_MANUFACTURER := samsung
 PRODUCT_MODEL := GT-N7000
 
 # Set build fingerprint / ID / Product Name ect.
-BUILD_FINGERPRINT := "samsung/GT-N7000/GT-N7000:4.1.2/JZO54K/N7000XXLSZ:user/release-keys"
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME="GT-N7000" \
-    TARGET_DEVICE="GT-N7000" \
-    PRIVATE_BUILD_DESC="GT-N7000-user 4.1.2 JZO54K N7000XXLSZ release-keys"
+    DeviceName=GT-N7000 \
+    BuildDesc="GT-N7000-user 4.1.2 JZO54K N7000XXLSZ release-keys" \
+    BuildFingerprint=samsung/GT-N7000/GT-N7000:4.1.2/JZO54K/N7000XXLSZ:user/release-keys
+    
 
 PRODUCT_GMS_CLIENTID_BASE := android-samsung
