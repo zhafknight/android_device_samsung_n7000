@@ -18,6 +18,7 @@ include $(CLEAR_VARS)
 
 LOCAL_SRC_FILES := gps.c
 
+LOCAL_HEADER_LIBRARIES += libhardware_headers
 LOCAL_SHARED_LIBRARIES := \
 	libcutils \
 	liblog
