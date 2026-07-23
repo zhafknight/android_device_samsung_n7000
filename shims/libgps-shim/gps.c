@@ -41,8 +41,6 @@ void shim_set_ref_location(const AGpsRefLocation *agps_reflocation, size_t sz_st
 	// the two structs are identical, so this is ok
 	memcpy(&vendor_ref, agps_reflocation, sizeof(AGpsRefLocationNoLTE));
 	vendor_set_ref_location(&vendor_ref, sizeof(AGpsRefLocationNoLTE));
-	// copy it back
-	memcpy(agps_reflocation, &vendor_ref, sizeof(AGpsRefLocationNoLTE));
 }
 
 const void* shim_get_extension(const char* name) {
@@ -50,7 +48,7 @@ const void* shim_get_extension(const char* name) {
 		// RIL interface
 		AGpsRilInterface *ril = (AGpsRilInterface*)vendor_get_extension(name);
 		// now we shim the ref_location callback
-		vendor_set_ref_location = ril->set_ref_location;
+		vendor_set_ref_location = (void (*)(const AGpsRefLocationNoLTE *, size_t))ril->set_ref_location;
 		ril->set_ref_location = shim_set_ref_location;
 		return ril;
 	} else {
@@ -59,7 +57,7 @@ const void* shim_get_extension(const char* name) {
 }
 
 const GpsInterface* shim_get_gps_interface(struct gps_device_t* dev) {
-	GpsInterface *halInterface = vendor_get_gps_interface(dev);
+	GpsInterface *halInterface = (GpsInterface *)vendor_get_gps_interface(dev);
 
 	vendor_get_extension = halInterface->get_extension;
 	halInterface->get_extension = &shim_get_extension;
