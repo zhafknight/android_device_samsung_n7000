@@ -22,7 +22,8 @@
 TARGET_BOARD_INFO_FILE := device/samsung/n7000/configs/board-info.txt
 
 # Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/n7000/configs/bluetooth
+$(call soong_config_set,brcm_libbt,bdroid_buildcfg_include_dir,device/samsung/n7000/configs/bluetooth)
+$(call soong_config_set,brcm_libbt,custom_bt_config,//device/samsung/n7000:vnd_n7000.txt)
 
 # Inline kernel building
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
