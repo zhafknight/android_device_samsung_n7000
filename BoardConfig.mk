@@ -38,5 +38,10 @@ VENDOR_SECURITY_PATCH := 2013-01-24
 # Add the system properties.
 TARGET_SYSTEM_PROP += device/samsung/n7000/system.prop
 
+# Legacy Broadcom gpsd imports SSLv3_client_method, removed from BoringSSL.
+# Preload the compatibility symbol only for the GPSD executable.
+TARGET_LD_SHIM_LIBS += \
+    /system/vendor/bin/gpsd|libgps_symbols.so
+
 # Use the non-open-source parts, if they're present
 -include vendor/samsung/n7000/BoardConfigVendor.mk

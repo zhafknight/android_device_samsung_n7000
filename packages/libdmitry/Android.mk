@@ -19,8 +19,14 @@ LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libgui libbinder libutils libsensor
-LOCAL_SRC_FILES := libdmitry.c
+LOCAL_SHARED_LIBRARIES := \
+    libcutils \
+    liblog \
+    libsensorndkbridge \
+    libutils
+LOCAL_HEADER_LIBRARIES := libandroid_sensor_headers
+LOCAL_SRC_FILES := libdmitry_legacy_sensor.cpp
 LOCAL_MODULE := libdmitry
+LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
