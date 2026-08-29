@@ -53,18 +53,18 @@ PRODUCT_PACKAGES += \
 
 # Keylayout
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/input/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
-    $(LOCAL_PATH)/configs/input/keylayout/max8997-muic.kl:system/usr/keylayout/max8997-muic.kl \
-    $(LOCAL_PATH)/configs/input/keylayout/melfas-touchkey.kl:system/usr/keylayout/melfas-touchkey.kl \
-    $(LOCAL_PATH)/configs/input/keylayout/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl \
-    $(LOCAL_PATH)/configs/input/keylayout/sec_key.kl:system/usr/keylayout/sec_key.kl \
-    $(LOCAL_PATH)/configs/input/keylayout/sec_touchkey.kl:system/usr/keylayout/sec_touchkey.kl
+    $(LOCAL_PATH)/configs/input/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/max8997-muic.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/max8997-muic.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/melfas-touchkey.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/melfas-touchkey.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/samsung-keypad.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/samsung-keypad.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/sec_key.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sec_key.kl \
+    $(LOCAL_PATH)/configs/input/keylayout/sec_touchkey.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/sec_touchkey.kl
 
 # Idc
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/input/idc/melfas_ts.idc:system/usr/idc/melfas_ts.idc \
-    $(LOCAL_PATH)/configs/input/idc/mxt224_ts_input.idc:system/usr/idc/mxt224_ts_input.idc \
-    $(LOCAL_PATH)/configs/input/idc/sec_e-pen.idc:system/usr/idc/sec_e-pen.idc \
-    $(LOCAL_PATH)/configs/input/idc/sec_touchscreen.idc:system/usr/idc/sec_touchscreen.idc
+    $(LOCAL_PATH)/configs/input/idc/melfas_ts.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/melfas_ts.idc \
+    $(LOCAL_PATH)/configs/input/idc/mxt224_ts_input.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/mxt224_ts_input.idc \
+    $(LOCAL_PATH)/configs/input/idc/sec_e-pen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/sec_e-pen.idc \
+    $(LOCAL_PATH)/configs/input/idc/sec_touchscreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/sec_touchscreen.idc
 
 $(call inherit-product-if-exists, vendor/samsung/n7000/n7000-vendor.mk)
