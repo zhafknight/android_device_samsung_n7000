@@ -40,7 +40,7 @@ LOCAL_SRC_FILES := 						\
 				PressureSensor.cpp              \
                                 InputEventReader.cpp
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils libdl libc
+LOCAL_SHARED_LIBRARIES := libutils libcutils liblog libc libhardware
 LOCAL_PRELINK_MODULE := false
 
 include $(BUILD_SHARED_LIBRARY)
