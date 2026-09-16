@@ -1,0 +1,12 @@
+#!/sbin/sh
+
+if [ "$1" = "-a" ]; then
+	while read device type size used priority; do
+		[ "$device" = "Filename" ] && continue
+		[ -z "$device" ] && continue
+		/system/bin/toybox swapoff "$device" || exit $?
+	done < /proc/swaps
+	exit 0
+fi
+
+exec /system/bin/toybox swapoff "$@"
