@@ -1,2 +1,2 @@
-add_lunch_combo omni_i9100-eng
-add_lunch_combo omni_i9100-userdebug
+add_lunch_combo omni_n7000-eng
+add_lunch_combo omni_n7000-userdebug

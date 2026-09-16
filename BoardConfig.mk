@@ -1,10 +1,10 @@
-DEVICE_TREE := device/samsung/i9100
+DEVICE_TREE := device/samsung/n7000
 
 CM_PLATFORM_SDK_VERSION := 7	# Required for libf2fs.so
 override TARGET_OUT_VENDOR_SHARED_LIBRARIES = $(TARGET_OUT_SHARED_LIBRARIES)
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := galaxys2,i9100,GT-I9100,GT-I9100M,GT-I9100P,GT-I9100T,SC-02C
+TARGET_OTA_ASSERT_DEVICE := n7000,GT-N7000
 
 # Bootloader
 TARGET_NO_BOOTLOADER := true
@@ -23,7 +23,7 @@ TARGET_CPU_VARIANT := cortex-a9
 TARGET_CPU_SMP := true
 
 # Boot image
-TARGET_KERNEL_CONFIG := lineageos_i9100_defconfig
+TARGET_KERNEL_CONFIG := lineageos_n7000_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/smdk4412
 BOARD_CUSTOM_BOOTIMG_MK := $(DEVICE_TREE)/mkbootimg.mk
 BOARD_KERNEL_CMDLINE := console=ttySAC2,115200 consoleblank=0
