@@ -6,7 +6,7 @@ Add to `.repo/local_manifests/i9100.xml`:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <project name="TeamWin/android_device_samsung_i9100" path="device/samsung/i9100" remote="github" revision="android-7.1" />
+  <project name="TeamWin/android_device_samsung_n7000" path="device/samsung/n7000" remote="github" revision="android-7.1" />
 </manifest>
 ```
 
@@ -16,7 +16,7 @@ To build:
 
 ```sh
 . build/envsetup.sh
-lunch omni_i9100-eng
+lunch omni_n7000-eng
 mka recoveryimage
 ```
 
