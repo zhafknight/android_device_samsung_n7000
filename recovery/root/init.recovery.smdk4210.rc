@@ -1,3 +1,5 @@
+import /init.smdk4210.usb.rc
+
 on boot
 # Permissions for mDNIe
     chown system media_rw /sys/class/mdnie/mdnie/mode
