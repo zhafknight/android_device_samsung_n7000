@@ -37,6 +37,7 @@ if [ "$1" = "$FDEVICE" ] || [ "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export FOX_RECOVERY_SYSTEM_PARTITION="/dev/block/platform/dw_mmc/by-name/FACTORYFS"
     export FOX_SETTINGS_ROOT_DIRECTORY=/data/recovery
     export FOX_MISCELLANEOUS_ROOT_DIRECTORY=/sdcard
+    export OF_DEFAULT_TIMEZONE="MYT-8"
 	export OF_ALLOW_DISABLE_NAVBAR=0
     export FOX_DELETE_AROMAFM=1
     export FOX_ENABLE_APP_MANAGER=1

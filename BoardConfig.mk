@@ -49,17 +49,35 @@ TARGET_USERIMAGES_USE_F2FS := false
 BOARD_SUPPRESS_SECURE_ERASE := true
 
 # TWRP specific build flags
-TW_THEME := portrait_mdpi
+TW_INCLUDE_REPACKTOOLS := true
+TW_INCLUDE_RESETPROP := true
+TARGET_USES_MKE2FS := true
+TW_USE_TOOLBOX := true
+TW_DEFAULT_LANGUAGE := en
+TW_EXTRA_LANGUAGES := true
 HAVE_SELINUX := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_CUSTOM_BATTERY_PATH := /sys/devices/platform/sec-battery/power_supply/battery
+TW_USE_LEGACY_BATTERY_SERVICES := true
 TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/platform/s5p-tmu/temperature"
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 162
+OF_FLASHLIGHT_ENABLE := 0
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 TW_INCLUDE_NTFS_3G := true
 TW_MTP_DEVICE := "/dev/mtp_usb"
+TW_SKIP_ADDITIONAL_FSTAB := true
 TW_EXCLUDE_SUPERSU := true
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
-# Encryption support
-TW_INCLUDE_CRYPTO := true
+# Disable crypto
+TW_INCLUDE_CRYPTO := false
+TW_INCLUDE_CRYPTO_FBE := false
+TW_INCLUDE_FBE_METADATA_DECRYPT := false
+
+# skip decryption
+OF_SKIP_FBE_DECRYPTION := 1
+
+# Debug
+TWRP_INCLUDE_LOGCAT := true
