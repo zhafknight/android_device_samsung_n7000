@@ -4,5 +4,5 @@ ro.chipname=exynos4210
 ro.arch=exynos4210
 ro.lcd_min_brightness=0
 ro.lcd_brightness=162
-ro.sf.lcd_density=240
+ro.sf.lcd_density=320
 persist.sys.usb.config=mtp,adb
